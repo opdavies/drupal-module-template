@@ -1,0 +1,7 @@
+services:
+  Drupal\Core\Logger\LoggerChannelFactoryInterface:
+    alias: "logger.factory"
+    private: true
+
+  Drupal\drupal_module_template\Controller\ExamplePageController:
+    autowire: true
