@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="phpcs-standard">
+  <description>Codestyle ruleset for Drupal</description>
+
+  <rule ref="Drupal"/>
+  <rule ref="DrupalPractice"/>
+
+  <arg name="ignore" value="*.css,*.md,*.txt"/>
+
+  <arg name="colors"/>
+  <arg value="np"/>
+
+  <file>./src</file>
+
+  <rule ref="Drupal">
+    <exclude name="Drupal.Commenting.ClassComment.Missing"/>
+    <exclude name="Drupal.NamingConventions.ValidFunctionName.ScopeNotCamelCaps"/>
+    <exclude name="Drupal.Commenting.DataTypeNamespace.DataTypeNamespace"/>
+    <exclude name="Drupal.Commenting.DocComment.MissingShort"/>
+    <exclude name="Drupal.Commenting.FunctionComment.IncorrectParamVarName"/>
+    <exclude name="Drupal.Commenting.FunctionComment.IncorrectTypeHint"/>
+    <exclude name="Drupal.Commenting.FunctionComment.InvalidReturn"/>
+    <exclude name="Drupal.Commenting.FunctionComment.Missing"/>
+    <exclude name="Drupal.Commenting.FunctionComment.MissingParamComment"/>
+    <exclude name="Drupal.Commenting.FunctionComment.MissingReturnComment"/>
+    <exclude name="Drupal.Commenting.FunctionComment.ParamTypeSpaces"/>
+    <exclude name="Drupal.Commenting.InlineComment.DocBlock"/>
+    <exclude name="Drupal.Commenting.VariableComment.Missing"/>
+    <exclude name="DrupalPractice.Objects.StrictSchemaDisabled.StrictConfigSchema"/>
+  </rule>
+</ruleset>
