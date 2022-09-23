@@ -1,4 +1,5 @@
 name: Drupal Module Template
+description: TODO
 type: module
 core_version_requirement: ^9
 package: Example
