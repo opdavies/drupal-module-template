@@ -1,5 +1,5 @@
 drupal-module-template.example:
-  path: /@opdavies/example
+  path: /@opdavies/drupal-module-template
   defaults:
     _controller: Drupal\drupal_module_template\Controller\ExamplePageController
     _title: Example page

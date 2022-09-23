@@ -22,7 +22,7 @@ final class ExamplePageTest extends BrowserTestBase {
     // Arrange.
 
     // Act.
-    $this->drupalGet('/@opdavies/example');
+    $this->drupalGet('/@opdavies/drupal-module-template');
 
     // Assert.
     $this->assertSession()->statusCodeEquals(Response::HTTP_OK);
