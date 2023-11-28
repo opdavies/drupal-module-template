@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+machine_name=$(basename "${PWD}")
+
+# Remove machine generated files.
+function clean {
+  rm -fr composer.lock vendor
+}
+
+function help {
+  printf "%s <task> [args]\n\nTasks:\n" "${0}"
+
+  compgen -A function | grep -v "^_" | cat -n
+
+  printf "\nExtended help:\n  Each task has comments for general usage\n"
+}
+
+# Rename and update the template files.
+function rename {
+  clean
+
+  local module_name="${1:-My Module}"
+
+  _update-file-contents "${module_name}"
+  _rename-files
+}
+
+function _rename-files {
+  mv drupal_module_template.info.yml "${machine_name}.info.yml"
+  mv drupal_module_template.routing.yml "${machine_name}.routing.yml"
+  mv drupal_module_template.services.yml "${machine_name}.services.yml"
+}
+
+function _update-file-contents {
+  sed -i "s/Drupal Module Template/${module_name}/g" drupal_module_template.info.yml
+
+  find . \
+    -type f \
+      ! -name .gitignore \
+      ! -name .keep \
+      ! -name phpcs.xml.dist \
+      ! -name run \
+      ! -path "./.git/**" \
+      ! -path "./.github/**" \
+      ! -path "./vendor/**" \
+    -exec sed -i "s/drupal_module_template/${machine_name}/g" {} \;
+}
+
+TIMEFORMAT=$'\nTask completed in %3lR'
+time "${@:-help}"
