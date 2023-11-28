@@ -17,8 +17,7 @@ final class ExamplePageTest extends BrowserTestBase {
     "drupal_module_template"
   ];
 
-  /** @test */
-  public function should_load_the_example_page_for_anonymous_users(): void {
+  public function testShouldLoadTheExamplePageForAnonymousUsers(): void {
     // Arrange.
 
     // Act.
